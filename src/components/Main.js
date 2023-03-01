@@ -1,11 +1,46 @@
+import { Items } from "./HeaderItems";
 import { useState } from "react";
 import { DropDown } from "./DropDown";
+import { Header } from "./Header";
+import { Form } from "./NameInput";
 
 const Image = require("./Images/images.jpg");
 
 const Main = () => {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
+  const [sec, setSec] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [found, setFound] = useState([false, false, false]);
+
+  const foundCharacter = (val) => {
+    let newArray = [...found];
+    newArray[val] = true;
+    setFound(newArray);
+    console.log(found);
+  };
+
+  if (found.every((x) => Boolean(x)) === false) {
+    setTimeout(() => {
+      if (sec < 59) {
+        setSec(sec + 1);
+      } else if (sec >= 59 && minutes < 59) {
+        setSec(0);
+        setMinutes(minutes + 1);
+      } else {
+        setSec(0);
+        setMinutes(0);
+        setHours(hours + 1);
+      }
+    }, 1000);
+  }
+  else {
+    document.querySelector(".form").classList.remove("none")
+    const div = document.createElement("div")
+    div.classList.add("grey")
+    document.body.append(div)
+  }
 
   const listDisplay = (event) => {
     setX(event.nativeEvent.offsetX);
@@ -29,8 +64,10 @@ const Main = () => {
 
   return (
     <div>
+      <Header hours={hours} minutes={minutes} seconds={sec} items={Items} />
       <img alt="game" onClick={listDisplay} id="image" src={Image} />
-      <DropDown x={x} y={y} />
+      <DropDown func={foundCharacter} x={x} y={y} />
+      <Form hours={hours} minutes={minutes} seconds={sec} />
     </div>
   );
 };

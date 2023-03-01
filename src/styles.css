@@ -1,3 +1,9 @@
+body {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
 .dropdown {
     position: absolute;
     display: none;
@@ -37,4 +43,34 @@
     width: 50px;
     border-radius: 50%;
     border: solid 2px red;
+}
+
+.form {
+    position: absolute;
+    left: 35vw;
+    top: 40vh;
+    background-color: white;    
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 3;
+}
+
+.none {
+    display: none;
+}
+
+.grey {
+    background-color: black;
+    opacity: 0.1;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
 }

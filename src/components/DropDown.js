@@ -6,15 +6,15 @@ const DropDown = (props) => {
     getDatabaseCoordinates(val).then((coordinates) => {
       let x = coordinates.x;
       let y = coordinates.y;
-      let OriginalX = props.x;
-      let OriginalY = props.y
-      console.log(x, y)
-      console.log(OriginalX, OriginalY)
-      if(x - OriginalX < 50 && x - OriginalX > -50 && y-OriginalY > -50 && y - OriginalY < 50){
-        console.log(true)
-      }
-      else{
-        console.log(false)
+      if (
+        x - props.x < 50 &&
+        x - props.x > -50 &&
+        y - props.y > -50 &&
+        y - props.y < 50
+      ) {
+        props.func(event.target.id)
+      } else {
+        alert("Keep looking!");
       }
     });
     const dropdown = document.querySelector(".dropdown");
@@ -25,13 +25,13 @@ const DropDown = (props) => {
   return (
     <div className="dropdown">
       <ul>
-        <li onClick={getCoordinates} value="waldo">
+        <li onClick={getCoordinates} id="0" value="waldo">
           Waldo
         </li>
-        <li onClick={getCoordinates} value="twin">
+        <li onClick={getCoordinates} id="1" value="odlaw">
           Odlaw
         </li>
-        <li onClick={getCoordinates} value="sanders">
+        <li onClick={getCoordinates} id="2" value="sanders">
           Bernie Sanders
         </li>
       </ul>
