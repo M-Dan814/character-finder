@@ -12,9 +12,21 @@ const DropDown = (props) => {
         y - props.y > -50 &&
         y - props.y < 50
       ) {
-        props.func(event.target.id)
+        props.func(event.target.id);
+        document.querySelector("#alert").classList.remove()
+        document.querySelector("#alert").innerHTML = `You found ${val}!`;
+        document.querySelector("#alert").classList.add("success")
+        setTimeout(() => {
+          document.querySelector("#alert").classList.remove("success")
+          document.querySelector("#alert").innerHTML = ""
+        }, 3000)
       } else {
-        alert("Keep looking!");
+        document.querySelector("#alert").innerHTML = `Keep looking!`;
+        document.querySelector("#alert").classList.add("failure")
+        setTimeout(() => {
+          document.querySelector("#alert").classList.remove("failure")
+          document.querySelector("#alert").innerHTML = ""
+        }, 3000)
       }
     });
     const dropdown = document.querySelector(".dropdown");

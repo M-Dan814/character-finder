@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LeaderBoard } from "./components/Leaderboard";
 import { Main } from "./components/Main";
 
 const SiteRouter = () => {
@@ -6,6 +7,7 @@ const SiteRouter = () => {
     <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<Main />} exact />
+        <Route path="/leaderboard" element={<LeaderBoard />} />
       </Routes>
     </BrowserRouter>
   );

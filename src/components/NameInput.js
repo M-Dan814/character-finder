@@ -18,9 +18,7 @@ const Form = (props) => {
   const addUser = () => {
     const user = {
       name: document.querySelector("#name").value,
-      time: `${props.hours < 10 ? "0" + props.hours : props.hours}: 
-      ${props.minutes < 10 ? "0" + props.minutes : props.minutes}: 
-      ${props.seconds < 10 ? "0" + props.seconds : props.seconds}`,
+      time: `${props.hours < 10 ? "0" + props.hours : props.hours}: ${props.minutes < 10 ? "0" + props.minutes : props.minutes}: ${props.seconds < 10 ? "0" + props.seconds : props.seconds}`,
     };
     db.collection("leaderboard")
       .add(user)
@@ -42,7 +40,7 @@ const Form = (props) => {
       </h3>
       <label htmlFor="name">Please enter your name: </label>
       <input type="text" id="name" />
-      <Link onClick={addUser}>Submit</Link>
+      <Link id="btn" to="leaderboard" onClick={addUser}>Submit</Link>
     </form>
   );
 };

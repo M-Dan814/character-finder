@@ -3,6 +3,7 @@ import { useState } from "react";
 import { DropDown } from "./DropDown";
 import { Header } from "./Header";
 import { Form } from "./NameInput";
+import { Box } from "./alerts";
 
 const Image = require("./Images/images.jpg");
 
@@ -34,17 +35,25 @@ const Main = () => {
         setHours(hours + 1);
       }
     }, 1000);
-  }
-  else {
-    document.querySelector(".form").classList.remove("none")
-    const div = document.createElement("div")
-    div.classList.add("grey")
-    document.body.append(div)
+  } else {
+    document.querySelector(".form").classList.remove("none");
+    const div = document.createElement("div");
+    div.classList.add("grey");
+    document.querySelector(".game").append(div);
   }
 
   const listDisplay = (event) => {
-    setX(event.nativeEvent.offsetX);
-    setY(event.nativeEvent.offsetY);
+    setX(
+      Math.round(
+        (event.nativeEvent.offsetX / event.nativeEvent.target.offsetWidth) * 100
+      )
+    );
+    setY(
+      Math.round(
+        (event.nativeEvent.offsetY / event.nativeEvent.target.offsetHeight) *
+          100
+      )
+    );
     const dropdown = document.querySelector(".dropdown");
     const targetter = document.querySelector(".target");
     if (dropdown.style.display !== "none" && targetter) {
@@ -56,16 +65,19 @@ const Main = () => {
       dropdown.style.top = event.pageY + "px";
       const target = document.createElement("div");
       target.classList.add("target");
-      target.style.top = `${event.pageY - 45}px`;
+      target.style.top = `${event.pageY - 115}px`;
       target.style.left = `${event.pageX - 45}px`;
       document.body.append(target);
     }
   };
 
   return (
-    <div>
+    <div className="game">
+      <Box />
       <Header hours={hours} minutes={minutes} seconds={sec} items={Items} />
-      <img alt="game" onClick={listDisplay} id="image" src={Image} />
+      <div className="image-holder">
+        <img alt="game" onClick={listDisplay} id="image" src={Image} />
+      </div>
       <DropDown func={foundCharacter} x={x} y={y} />
       <Form hours={hours} minutes={minutes} seconds={sec} />
     </div>
