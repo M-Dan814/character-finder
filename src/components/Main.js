@@ -8,13 +8,14 @@ import { Box } from "./alerts";
 const Image = require("./Images/images.jpg");
 
 const Main = () => {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const [sec, setSec] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [found, setFound] = useState([false, false, false]);
+  const [x, setX] = useState(0); // X coordinates
+  const [y, setY] = useState(0); // Y coordinates
+  const [sec, setSec] = useState(0); // Timer secs
+  const [hours, setHours] = useState(0); // Timer hours
+  const [minutes, setMinutes] = useState(0); // Timer mins
+  const [found, setFound] = useState([false, false, false]); // List to check if characters have been found
 
+  // Change value if a character is found. Called in DropDown.js file
   const foundCharacter = (val) => {
     let newArray = [...found];
     newArray[val] = true;
@@ -22,6 +23,7 @@ const Main = () => {
     console.log(found);
   };
 
+  // If every character has not been found, timer will increase every second
   if (found.every((x) => Boolean(x)) === false) {
     setTimeout(() => {
       if (sec < 59) {
@@ -37,12 +39,14 @@ const Main = () => {
     }, 1000);
   } else {
     document.querySelector(".form").classList.remove("none");
+    // Div is to create a greyed out effect
     const div = document.createElement("div");
     div.classList.add("grey");
     document.querySelector(".game").append(div);
   }
 
   const listDisplay = (event) => {
+    // Change X and Y coordinates
     setX(
       Math.round(
         (event.nativeEvent.offsetX / event.nativeEvent.target.offsetWidth) * 100
@@ -56,6 +60,7 @@ const Main = () => {
     );
     const dropdown = document.querySelector(".dropdown");
     const targetter = document.querySelector(".target");
+    // If dropdown and targetter are already on page, clicking will remove them else dropdown and targetter will be added to page
     if (dropdown.style.display !== "none" && targetter) {
       dropdown.style.display = "none";
       document.body.removeChild(targetter);

@@ -15,8 +15,8 @@ const db = app.firestore();
 
 const collectionRef = db.collection("coordinates");
 
+// Function to get the coordinates of character from database
 const getDatabaseCoordinates = (item) => {
-  console.log("Getting coordinates....");
   const query = collectionRef.doc(item);
     return query.get().then((doc) => {
       return doc.data()

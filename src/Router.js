@@ -1,15 +1,15 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import { LeaderBoard } from "./components/Leaderboard";
 import { Main } from "./components/Main";
 
 const SiteRouter = () => {
   return (
-    <BrowserRouter basename="/">
+    <HashRouter basename="/">
       <Routes>
         <Route path="/" element={<Main />} exact />
         <Route path="/leaderboard" element={<LeaderBoard />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

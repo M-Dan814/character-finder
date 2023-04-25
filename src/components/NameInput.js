@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 
+// Firebase is also initialized here to access database and make entries to Leaderboard
+
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -15,6 +17,7 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = app.firestore();
 
 const Form = (props) => {
+  // Function to add a user to database
   const addUser = () => {
     const user = {
       name: document.querySelector("#name").value,

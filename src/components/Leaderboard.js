@@ -16,8 +16,9 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = app.firestore();
 
 const LeaderBoard = () => {
-  let i = 0;
+  let i = 0; // For ranking
   const [users, setUsers] = useState([]);
+  // Check leaderboards database and populate the table based on entries in the database
   useEffect(() => {
     db.collection("leaderboard")
       .get()
