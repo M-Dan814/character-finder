@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/character-finder/static/css/main.646e9b71.css",
+    "main.js": "/character-finder/static/js/main.f68f542e.js",
+    "static/media/images.jpg": "/character-finder/static/media/images.6408423665df623e6f6d.jpg",
+    "static/media/Twin.PNG": "/character-finder/static/media/Twin.44d3ac5b689386ac2eb9.PNG",
+    "static/media/Waldo.jpg": "/character-finder/static/media/Waldo.d77f233ee7fa0592f361.jpg",
+    "static/media/Bernie.jpg": "/character-finder/static/media/Bernie.be06ae08c720f4fc9ed6.jpg",
+    "index.html": "/character-finder/index.html",
+    "main.646e9b71.css.map": "/character-finder/static/css/main.646e9b71.css.map",
+    "main.f68f542e.js.map": "/character-finder/static/js/main.f68f542e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.646e9b71.css",
+    "static/js/main.f68f542e.js"
+  ]
+}
