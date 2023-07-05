@@ -5,7 +5,7 @@ import { Header } from "./Header";
 import { Form } from "./NameInput";
 import { Box } from "./alerts";
 
-const Image = require("./Images/images.jpg");
+const Image = require("./Images/images.webp");
 
 const Main = () => {
   const [x, setX] = useState(0); // X coordinates

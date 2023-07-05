@@ -1,15 +1,15 @@
 let Items = [
   {
     name: "Waldo",
-    pic: require("./Images/Waldo.jpg"),
+    pic: require("./Images/Waldo.JPG"),
   },
   {
     name: "Odlaw",
-    pic: require("./Images/Twin.PNG"),
+    pic: require("./Images/Twin.JPG"),
   },
   {
     name: "Bernie",
-    pic: require("./Images/Bernie.jpg"),
+    pic: require("./Images/Bernie.JPG"),
   },
 ];
 

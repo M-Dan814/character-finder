@@ -11,16 +11,16 @@ const Header = (props) => {
       {/* A dropdown which shows the characters required */}
       <div className="head-dropdown">
         <button className="dropbtn">Characters</button>
-        <div className="dropdown-content">
+        <ul className="dropdown-content">
           {props.items.map((character) => {
             return (
               <li key={character.name}>
-                <img alt={character.name} src={character.pic} height={50} />
+                <img className="dropdown-images" alt={character.name} src={character.pic} />
                 <div>{character.name}</div>
               </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </div>
   );
